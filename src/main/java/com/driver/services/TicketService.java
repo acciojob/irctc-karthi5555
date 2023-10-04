@@ -41,6 +41,7 @@ public class TicketService {
         //Save the bookedTickets in the train Object
         //Also in the passenger Entity change the attribute bookedTickets by using the attribute bookingPersonId.
         //And the end return the ticketId that has come from db
+
         Train train=trainRepository.findById(bookTicketEntryDto.getTrainId()).get();
         int bookedSeats=0;
         List<Ticket>booked=train.getBookedTickets();
@@ -94,6 +95,5 @@ public class TicketService {
         trainRepository.save(train);
 
         return ticketRepository.save(ticket).getTicketId();
-
     }
 }
